@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Install the following tools
+# bash, bc, coreutils, gawk, gh, glab, gsed, jq, nowplaying-cli
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SCRIPTS_PATH="$CURRENT_DIR/src"
 
@@ -51,12 +53,15 @@ current_path="#($SCRIPTS_PATH/path-widget.sh #{pane_current_path})"
 tmux set -g status-left "#[fg=#{?client_prefix,red,blue},bg=default,bold] #{?client_prefix,  ,#[dim]  }#[fg=#{?client_prefix,red,blue} bg=default,bold,nodim]#S  $RESET"
 # 󰤂 󰠠
 # #2A2B3C
+# 
+# 
+# 
 
 #+--- Windows ---+
 # Focus
 tmux set -g window-status-current-format "#[fg=#93E2D5,bg=default]   #[fg=#a9b1d6]$window_number #[fg=#93E2D5,bg=default]#{b:pane_current_path}#[nobold,dim]#{?window_zoomed_flag, $zoom_number, $custom_pane} #{?window_last_flag,,} "
 # Unfocused
-tmux set -g window-status-format "#[fg=#c0caf5,bg=default,none,dim]    $window_number #W#[nobold,dim]#{?window_zoomed_flag, $zoom_number, $custom_pane}#[fg=yellow,blink] #{?window_last_flag,󰁯 ,} "
+tmux set -g window-status-format "#[fg=#c0caf5,bg=default,none,dim]   $window_number #W#[nobold,dim]#{?window_zoomed_flag, $zoom_number, $custom_pane}#[fg=yellow,blink] #{?window_last_flag,󰁯 ,} "
 
 #+--- Bars RIGHT ---+
 tmux set -g status-right "$now_playing $current_path"
